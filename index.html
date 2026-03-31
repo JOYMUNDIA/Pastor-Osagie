@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastor Patrick D. Osagie</title>
+<!--Fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Kit  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f4;
+    overflow-x: hidden;
+}
+
+/* Navigation CSS */
+/* Glassmorphic Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 1000;
+  box-shadow: 0 8px 32px 0 rgba(13, 35, 75, 0.25);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.header .signature {
+  font-family: 'Corinthia', cursive;
+  font-size: 1.8rem;
+  color: #f4b400;
+}
+
+.nav-links a {
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: #0d234b;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f4b400;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  color: #0d234b;
+  cursor: pointer;
+}
+
+/* Sidebar with color palette */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  left: auto;
+  width: 250px;
+  height: 100%;
+  background: #0d234b;
+  box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  z-index: 99999; /* higher than everything */
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar .close-btn {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #f4b400; /* mustard close icon */
+  margin-bottom: 2rem;
+}
+
+.sidebar-links a {
+  display: block;
+  margin: 1rem 0;
+  font-weight: 600;
+  color: #ffffff; /* white text for contrast */
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+  padding-left: 5px;
+}
+
+/* Mustard underline/line effect on hover */
+.sidebar-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: #f4b400; /* mustard */
+  transition: 0.3s;
+}
+
+.sidebar-links a:hover::after {
+  width: 100%;
+}
+
+/* Header active link underline */
+.nav-links a.active {
+  color: #f4b400;
+  border-bottom: 2px solid #f4b400;
+}
+
+/* Sidebar active link underline */
+.sidebar-links a.active::after {
+  width: 100%; /* full mustard line for active */
+}
+
+/* Responsive */
+@media(max-width: 992px){
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+.Hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+    padding-top: 4rem; /* Space for header */
+}
+
+@media(max-width: 576px){
+    .Hero {
+        padding-top: 80px; /* slightly smaller on mobile */
+    }
+}
+
+.container {
+    width: 90%;
+    background: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    overflow: hidden;
+}
+
+/* Banner Layout */
+.banner {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Left Section */
+.left {
+    flex: 1 1 40%;
+    background: #0d234b;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    padding: 30px 0;
+}
+
+.person {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pop-container {
+  border-radius: 50%;
+  height: 312px;
+  width: 400px;
+  transform: scale(0.6);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.pop-container:hover {
+  transform: scale(0.7);
+}
+
+.pop-container:hover .circle {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+.container-inner {
+  clip-path: path(
+    "M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z"
+  );
+  position: relative;
+  top: -200px;
+}
+
+.circle {
+  background-color: #f4b400;
+  border-radius: 50%;
+  height: 380px;
+  width: 380px;
+  position: absolute;
+  top: 210px;
+  left: 10px;
+}
+
+.img {
+  position: relative;
+  transform: translateY(20px) scale(1.15);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pop-container:hover .img {
+  transform: translateY(0) scale(1.2);
+}
+
+.img1 {
+  left: 30px;
+  top: 210px;
+  width: 340px;
+}
+
+.rectangles-vertical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    z-index: 2; /* above background but below portrait */
+}
+
+.rectangles-vertical .rect {
+    width: 20px;
+    flex: 1;
+    margin: 5px 0;
+    background-color: #0d234b; /* initial blue */
+    border-radius: 4px;
+    box-shadow: 5px 0px 20px rgba(0,0,0,0.2); /* default */
+    animation: colorShift 5s infinite alternate;
+}
+
+/* Each rectangle has progressively darker right edge */
+.rect1 { box-shadow: 5px 0px 20px rgba(0,0,0,0.2); animation-delay: 0s; }
+.rect2 { box-shadow: 5px 0px 20px rgba(0,0,0,0.4); animation-delay: 0.3s; }
+.rect3 { box-shadow: 5px 0px 20px rgba(0,0,0,0.6); animation-delay: 0.6s; }
+.rect4 { box-shadow: 5px 0px 20px rgba(0,0,0,0.8); animation-delay: 0.9s; }
+
+/* Animation for color change from blue to white */
+@keyframes colorShift {
+    0% { background-color: #0d234b; }
+    100% { background-color: #ffffff; }
+}
+
+/* Right Section */
+.right {
+    flex: 1 1 60%;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    padding: 60px 30px;
+    min-height: 350px;
+}
+
+/* Right Background Image */
+.right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('building.jpg') center/cover no-repeat;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+/* Right Content */
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Text */
+.small-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.big-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.big-title .yellow {
+    color: #f4b400;
+}
+
+.big-title .blue {
+    color: #0d234b;
+}
+
+.desc {
+    font-size: 0.9rem;
+    color: #333;
+    max-width: 450px;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid #f4b400;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* Social Links */
+.social {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-size: 0.85rem;
+    color: #333;
+    z-index: 2;
+}
+
+.social a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.85rem;
+}
+
+.social a i {
+    margin-right: 5px;
+    color: #f4b400; /* Optional: make icons gold */
+}
+
+.signature{
+    font-family: "Corinthia", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    color: #0d234b;
+}
+
+/* Responsive */
+@media(max-width: 992px){
+    .banner {
+        flex-direction: column;
+    }
+    .left, .right {
+        flex: 1 1 100%;
+        min-height: 300px;
+    }
+    .hexagon {
+        width: 35%;
+    }
+    .hex-small {
+        width: 12%;
+    }
+    .big-title {
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 576px){
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    .big-title {
+        font-size: 1.5rem;
+    }
+    .desc {
+        font-size: 0.8rem;
+    }
+    .button {
+        font-size: 0.75rem;
+        padding: 8px 20px;
+    }
+    .logo {
+        font-size: 0.85rem;
+    }
+    .social {
+        font-size: 0.75rem;
+    }
+}
+
+/* Video background */
+.video-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.video-bg iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* White-grey overlay for readability */
+.video-bg .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(241, 241, 241, 0.9); /* semi-transparent */
+    z-index: 2;
+}
+
+/* Right content above overlay */
+.right .content {
+    position: relative;
+    z-index: 3;
+}
+
+/* Play Button */
+#play-video {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid #f4b400;
+    border-radius: 30px;
+    background: #fff;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    z-index: 3;
+    position: relative;
+}
+
+#play-video:hover {
+    background: #f4b400;
+    color: #fff;
+}
+
+/* Fade-in & slide-up animation */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Animate each element with staggered delays */
+.header-anim {
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.left-anim {
+  animation: fadeSlideLeft 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.pop-anim {
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 1s;
+}
+
+/* Ensure they start invisible */
+.animate {
+  opacity: 0;
+}
+
+/* Right container animation after left finishes */
+.right-anim {
+    position: relative;
+    z-index: 5; /* above video */
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 2s; /* starts after left finishes */
+}
+
+/* Children text animations */
+.small-title-anim {
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 2.2s; /* stagger slightly after right container */
+}
+
+.big-title-anim {
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 2.4s;
+}
+
+.desc-anim {
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 2.6s;
+}
+
+.signature-anim {
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 2.8s;
+}
+
+.play-anim {
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 3s;
+}
+
+.social-anim {
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 3.2s;
+}
+
+/*Section*/
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+.about-section .container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.about-text {
+  flex: 1 1 55%;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  color: #0d234b;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.about-text strong {
+  color: #f4b400;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+  }
+  .about-text, .about-image {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Ministry & Youth Section */
+.ministry-section {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.ministry-section .container{
+    padding: 1rem;
+}
+
+.ministry-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0d234b;
+  margin-bottom: 50px;
+}
+
+.ministry-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.ministry-section .card {
+  flex: 1 1 30%;
+  background: #f4f4f4;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.ministry-section .card i {
+  font-size: 2.5rem;
+  color: #f4b400;
+  margin-bottom: 20px;
+}
+
+.ministry-section .card h3 {
+  font-size: 1.5rem;
+  color: #0d234b;
+  margin-bottom: 15px;
+}
+
+.ministry-section .card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.ministry-section .card .btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background: #0d234b;
+  color: #f4b400;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ministry-section .card .btn:hover {
+  background: #f4b400;
+  color: #0d234b;
+}
+
+.ministry-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .ministry-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ministry-section .card {
+    flex: 1 1 100%;
+    max-width: 500px;
+  }
+}
+
+/* Music & Saxophone Section */
+.music-section {
+  padding: 80px 20px;
+  background: #f4f4f4;
+}
+
+.music-section .container,
+.youth-section .container{
+    padding: 1rem;
+}
+
+.music-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0d234b;
+  margin-bottom: 50px;
+}
+
+/* Bento Grid Layout */
+.music-section .bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.music-section .grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.music-section .grid-item img, 
+.music-section .grid-item iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+/* Hover animation */
+.music-section .grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.music-section .grid-item:hover img,
+.music-section .grid-item:hover iframe {
+  transform: scale(1.1);
+}
+
+/* Video item slightly taller */
+.music-section .video-item {
+  grid-row: span 2;
+  min-height: 300px;
+}
+
+/* Fade-in animation */
+.animate-grid {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.animate-grid:nth-child(1) { animation-delay: 0.1s; }
+.animate-grid:nth-child(2) { animation-delay: 0.3s; }
+.animate-grid:nth-child(3) { animation-delay: 0.5s; }
+.animate-grid:nth-child(4) { animation-delay: 0.7s; }
+.animate-grid:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .video-item {
+    grid-row: span 1;
+    min-height: 200px;
+  }
+}
+
+/* Youth Ministry Section */
+.youth-section {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+
+.youth-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0d234b;
+  margin-bottom: 15px;
+}
+
+.youth-section .section-desc {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Cards Layout */
+.youth-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.youth-card {
+  background: #f4f4f4;
+  border-radius: 15px;
+  overflow: hidden;
+  flex: 1 1 300px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.youth-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.youth-card h3 {
+  margin: 15px 0 10px 0;
+  font-size: 1.2rem;
+  color: #0d234b;
+}
+
+.youth-card p {
+  padding: 0 15px 20px 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Hover animation */
+.youth-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Staggered fade-in */
+.animate-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.animate-card:nth-child(1) { animation-delay: 0.2s; }
+.animate-card:nth-child(2) { animation-delay: 0.4s; }
+.animate-card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .youth-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .youth-card {
+    flex: 1 1 100%;
+  }
+}
+
+/* Footer */
+.footer {
+  background: #0d234b;
+  color: #fff;
+  padding: 60px 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .container{
+    background: #0d234b;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  background: #0d234b;
+  gap: 40px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+}
+
+/* Logo */
+.footer-logo {
+  font-family: "Corinthia", cursive;
+  font-size: 2rem;
+  color: #f4b400;
+  margin-bottom: 15px;
+}
+
+/* Headings */
+.footer-col h4 {
+  margin-bottom: 15px;
+  color: #f4b400;
+}
+
+/* Text */
+.footer-col p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Links */
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #f4b400;
+}
+
+/* Form */
+.footer-form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.footer-form input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+}
+
+.footer-form button {
+  padding: 10px 15px;
+  border: none;
+  background: #f4b400;
+  color: #000;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-form button:hover {
+  background: #fff;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 15px;
+  font-size: 0.85rem;
+  color: #ccc;
+  background: #0d234b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-form {
+    flex-direction: column;
+  }
+
+  .footer-form input {
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .footer-form button {
+    border-radius: 20px;
+  }
+}
+
+/* Scroll Fade-In Base */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* When visible */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional variations */
+.fade-left {
+  transform: translateX(-40px);
+}
+
+.fade-right {
+  transform: translateX(40px);
+}
+
+.fade-in.show.fade-left,
+.fade-in.show.fade-right {
+  transform: translateX(0);
+}
+</style>
+</head>
+<body>
+<header class="header animate header-anim">
+  <div class="header-container">
+    <div class="signature">Patrick D. Osagie</div>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#ministry">Ministry</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<!-- Sidebar outside header -->
+<div class="sidebar">
+  <div class="close-btn">
+    <i class="fas fa-times"></i>
+  </div>
+  <nav class="sidebar-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#ministry">Ministry</a>
+    <a href="#media">Media</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<section class="Hero">
+
+    <div class="container">
+
+        <div class="banner">
+
+            <!-- Left -->
+            <div class="left animate left-anim">
+
+                <div class="person">
+                    <div class="pop-container animate pop-anim">
+                        <div class="container-inner">
+                        <img class="circle" src="images/Pastor_Osagie_.png" />
+                        <img class="img img1" src="images/Pastor_Osagie_.png" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rectangles-vertical">
+                    <div class="rect rect1"></div>
+                    <div class="rect rect2"></div>
+                    <div class="rect rect3"></div>
+                    <div class="rect rect4"></div>
+                </div>
+                
+            </div>
+
+            <!-- Right -->
+            <div class="right animate right-anim">
+                <!-- Video Background Container -->
+                <div class="video-bg">
+                    <iframe id="video-iframe"
+                        src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fpdosagie%2Fvideos%2F1453677586280619%2F&show_text=false&width=560&t=0"
+                        frameborder="0"
+                        allow="encrypted-media; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                    <!-- Overlay -->
+                    <div class="overlay"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="content">
+                    <div class="small-title animate small-title-anim">Pastor</div>
+                    <h2 class="big-title animate big-title-anim">
+                        <span class="yellow">Dr</span><br>
+                        <span class="blue">Patrick D. Osagie</span>
+                    </h2>
+                    <p class="desc animate desc-anim">
+                        Pastor, Musician, Youth Advocate, Academician.
+                    </p>
+                    <p class="signature animate signature-anim">Patrick D. Osagie</p>
+
+                    <!-- Play Button -->
+                    <button id="play-video" class="button animate play-anim">Play Video</button>
+                </div>
+
+                <div class="social animate social-anim">
+                    <a href="https://instagram.com/youraccount" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a> &nbsp;&nbsp;
+                    <a href="https://facebook.com/youraccount" target="_blank">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a> &nbsp;&nbsp;
+                    <a href="https://twitter.com/youraccount" target="_blank">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="about" class="about-section fade-in">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Pastor Patrick D. Osagie</h2>
+        <p>Pastor Patrick D. Osagie serves under the <strong>RCCG Power Assembly Mega Church</strong> and is deeply passionate about youth ministry as the <strong>Continental Youth Pastor</strong>. Beyond his pastoral duties, he is a talented saxophonist and musician, sharing his gift of worship with congregations and audiences alike.</p>
+        <p>He is also a devoted family man, committed to faith, family, and community. Pastor Patrick regularly hosts prayer sessions on his Facebook page and leads inspirational discussions through his radio podcast on <strong>HOTFM</strong>.</p>
+      </div>
+      <div class="about-image">
+        <img src="images/Pastor_Osagie_2.jpg" alt="Pastor Patrick D. Osagie" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ministry" class="ministry-section fade-in">
+  <div class="container">
+    <h2>Ministry & Youth Work</h2>
+    <div class="ministry-cards">
+
+      <!-- Youth Ministry Card -->
+      <div class="card">
+        <i class="fas fa-users"></i>
+        <h3>Youth Ministry</h3>
+        <p>As the <strong>Continental Youth Pastor</strong>, Pastor Patrick empowers young people across the continent through mentorship, conferences, and spiritual guidance.</p>
+      </div>
+
+      <!-- Prayer Sessions Card -->
+      <div class="card">
+        <i class="fas fa-praying-hands"></i>
+        <h3>Prayer Sessions</h3>
+        <p>Join regular online prayer sessions on Pastor Patrick's <a href="https://facebook.com/pdosagie" target="_blank">Facebook page</a> for spiritual renewal and community fellowship.</p>
+        <a href="https://facebook.com/pdosagie" target="_blank" class="btn">Join Prayer</a>
+      </div>
+
+      <!-- Podcast Card -->
+      <div class="card">
+        <i class="fas fa-podcast"></i>
+        <h3>HOTFM Podcast</h3>
+        <p>Tune in to inspiring talks, teachings, and interviews on Pastor Patrick’s weekly radio podcast on <strong>HOTFM</strong>.</p>
+        <a href="https://hotfm.com" target="_blank" class="btn">Listen Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="music" class="music-section fade-in">
+  <div class="container">
+    <h2>Music</h2>
+    <div class="bento-grid">
+
+      <!-- Grid Item 1 - Image -->
+      <div class="grid-item animate-grid">
+        <img src="images/on_knees.jpg" alt="Pastor Patrick Saxophone Performance 1">
+      </div>
+
+      <!-- Grid Item 2 - Image -->
+      <div class="grid-item animate-grid">
+        <img src="images/playing_Saxophone.jpg" alt="Pastor Patrick Saxophone Performance 2">
+      </div>
+
+      <!-- Grid Item 3 - Video -->
+      <div class="grid-item animate-grid video-item">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                title="Saxophone Performance Video" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+      </div>
+
+      <!-- Grid Item 4 - Image -->
+      <div class="grid-item animate-grid">
+        <img src="images/playing_saxophone2.jpg" alt="Pastor Patrick Saxophone Performance 3">
+      </div>
+
+      <!-- Grid Item 5 - Image -->
+      <div class="grid-item animate-grid">
+        <img src="images/singing.jpg" alt="Pastor Patrick Saxophone Performance 4">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="youth" class="youth-section fade-in">
+  <div class="container">
+    <h2>Youth Ministry & Leadership</h2>
+    <p class="section-desc">
+      As the Continental Youth Pastor, Pastor Patrick D. Osagie inspires, mentors, and empowers youth across Africa. He organizes impactful programs, conferences, and mentorship sessions to build a generation of faith-driven leaders.
+    </p>
+
+    <div class="youth-cards">
+
+      <!-- Card 1 -->
+      <div class="youth-card animate-card">
+        <img src="images/youth-event1.jpg" alt="Youth Conference">
+        <h3>Youth Conferences</h3>
+        <p>Engaging conferences to equip youth with spiritual and leadership skills.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="youth-card animate-card">
+        <img src="images/youth-mentorship.jpg" alt="Mentorship Program">
+        <h3>Mentorship Programs</h3>
+        <p>One-on-one mentorship for guidance, career, and spiritual growth.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="youth-card animate-card">
+        <img src="images/youth-service.jpg" alt="Youth Service">
+        <h3>Youth Services</h3>
+        <p>Weekly youth gatherings to foster community and spiritual development.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer fade-in">
+  <div class="container">
+
+    <div class="footer-content">
+
+      <!-- About -->
+      <div class="footer-col">
+        <h3 class="footer-logo">Patrick D. Osagie</h3>
+        <p>
+          Pastor, musician, and youth leader dedicated to spreading the Gospel, empowering young people, and building strong families through faith.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#music">Music</a></li>
+          <li><a href="#youth">Youth Ministry</a></li>
+          <li><a href="#live-prayer">Live Prayer</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact / Media -->
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://facebook.com/pdosagie" target="_blank">Facebook</a></li>
+          <li><a href="https://instagram.com/youraccount" target="_blank">Instagram</a></li>
+          <li><a href="#">HotFM Podcast</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter / CTA -->
+      <div class="footer-col">
+        <h4>Stay Connected</h4>
+        <p>Get updates on prayer sessions, events, and messages.</p>
+        <form class="footer-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>© 2026 Pastor Patrick D. Osagie. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+
+    // Navaigation Javascript
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('.sidebar');
+    const closeBtn = document.querySelector('.sidebar .close-btn');
+
+    hamburger.addEventListener('click', () => {
+    sidebar.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    });
+
+
+  // Load Facebook SDK
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 'YOUR_APP_ID', // Replace with your Facebook App ID
+      xfbml      : true,
+      version    : 'v17.0'
+    });
+
+    const iframe = document.getElementById('video-iframe');
+    const content = document.querySelector('.right .content');
+    const overlay = document.querySelector('.video-bg .overlay');
+    const social = document.querySelector('.right .social');
+    const playBtn = document.getElementById('play-video');
+
+    // Attach click to play button
+    playBtn.addEventListener('click', function() {
+        // Hide everything above the video
+        content.style.display = 'none';
+        social.style.display = 'none';
+        overlay.style.display = 'none';
+
+        // Reload iframe with autoplay
+        iframe.src = iframe.src + "&autoplay=1";
+
+        // Wrap the iframe in FB.Player to listen for finishedPlaying
+        FB.Event.subscribe('xfbml.ready', function(msg) {
+            if (msg.type === 'video' && msg.id === iframe.id) {
+                msg.instance.subscribe('finishedPlaying', function() {
+                    // Show content again after video ends
+                    content.style.display = 'block';
+                    social.style.display = 'block';
+                    overlay.style.display = 'block';
+                });
+            }
+        });
+    });
+  };
+
+  // Load Facebook SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+   // Scroll Fade-In Animation
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+        threshold: 0.2
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+        });
+</script>
+
+</body>
+</html>
