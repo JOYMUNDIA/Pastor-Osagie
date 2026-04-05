@@ -337,6 +337,21 @@ body {
     margin-bottom: 20px;
 }
 
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.badge {
+    background: var(--surface-dim);
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-left: 3px solid var(--gold);
+}
+
 /* Button */
 .button {
     display: inline-block;
@@ -1123,9 +1138,12 @@ section{
                         <span class="yellow">Dr</span><br>
                         <span class="blue">Patrick D. Osagie</span>
                     </h2>
-                    <p class="desc animate desc-anim">
-                        Pastor, Musician, Youth Advocate, Academician.
-                    </p>
+                    <div class="badge-container desc animate desc-anim">
+                      <span class="badge">Pastor</span>
+                      <span class="badge">Musician</span>
+                      <span class="badge">Youth Advocate</span>
+                      <span class="badge">Academician</span>
+                    </div>
                     <p class="signature animate signature-anim">Patrick D. Osagie</p>
 
                     <!-- Play Button -->
@@ -1154,7 +1172,7 @@ section{
   <div class="container">
     <div class="about-content">
       <div class="about-text">
-        <h2>About Pastor Patrick D. Osagie</h2>
+        <h2>Meet Pastor Patrick D. Osagie</h2>
         <p>Pastor Patrick D. Osagie serves under the <strong>RCCG Power Assembly Mega Church</strong> and is deeply passionate about youth ministry as the <strong>Continental Youth Pastor</strong>. Beyond his pastoral duties, he is a talented saxophonist and musician, sharing his gift of worship with congregations and audiences alike.</p>
         <p>He is also a devoted family man, committed to faith, family, and community. Pastor Patrick regularly hosts prayer sessions on his Facebook page and leads inspirational discussions through his radio podcast on <strong>HOTFM</strong>.</p>
       </div>
